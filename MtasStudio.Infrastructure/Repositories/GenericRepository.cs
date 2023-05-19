@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MtasStudio.Application.Interfaces.Repositories;
+using MtasStudio.Application.Models;
 using MtasStudio.Domain.SeedWork;
 using MtasStudio.Infrastructure.Context;
 using System;
@@ -27,7 +28,33 @@ namespace MtasStudio.Infrastructure.Repositories
             await dbContext.Set<T>().AddAsync(entity);
             return entity;
         }
+        public async Task<PagingResult<T>> GetPagedDataAsync(PagingResponse pagingResponse)
+        {
+            var query = dbContext.Set<T>().AsQueryable();
 
+           
+
+            if (pagingResponse.SortingResponse != null)
+            {
+                Sorting<T> sorting = new Sorting<T>(pagingResponse.SortingResponse.PropertyName, pagingResponse.SortingResponse.IsAscending);
+                query = sorting.Sort(query);
+            }
+
+            var totalCount = await query.CountAsync();
+
+            query = query.Skip((pagingResponse.PageIndex - 1) * pagingResponse.PageSize)
+                         .Take(pagingResponse.PageSize);
+
+            var data = await query.ToListAsync();
+
+            return new PagingResult<T>
+            {
+                Data = data,
+                TotalCount = totalCount,
+                PageIndex = pagingResponse.PageIndex,
+                PageSize = pagingResponse.PageSize
+            };
+        }
         public virtual async Task<List<T>> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = dbContext.Set<T>();

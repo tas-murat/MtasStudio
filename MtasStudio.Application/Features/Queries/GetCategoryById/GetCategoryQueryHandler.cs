@@ -25,14 +25,22 @@ namespace MtasStudio.Application.Features.Queries.GetCategoryById
 
     public async Task<IDataResult<CategoryViewModel>> Handle(GetCategoryQuery request, CancellationToken cancellationToken)
     {
-        var order = await categoryRepository.GetByIdAsync(request.CategoryId, i => i.Children);
-        if (order == null)
-        {
-            return new ErrorDataResult<CategoryViewModel>("Category Not Found");
-        }
+            try
+            {
+                var order = await categoryRepository.GetByIdAsync(request.CategoryId, i => i.Children);
+                if (order == null)
+                {
+                    return new ErrorDataResult<CategoryViewModel>("Category Not Found");
+                }
 
-        var result = mapper.Map<CategoryViewModel>(order);
-        return new SuccessDataResult<CategoryViewModel>(result);
+                var result = mapper.Map<CategoryViewModel>(order);
+                return new SuccessDataResult<CategoryViewModel>(result);
+            }
+            catch (Exception e)
+            {
+                return new ErrorDataResult<CategoryViewModel>(e.Message);
+            }
+       
     }
 }
 }

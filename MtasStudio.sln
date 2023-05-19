@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MtasStudio.Domain", "MtasSt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MtasStudio.Infrastructure", "MtasStudio.Infrastructure\MtasStudio.Infrastructure.csproj", "{F64B5712-44FC-420C-9932-257AD3F417DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MtasStudio.WebApp", "MtasStudio.WebApp\MtasStudio.WebApp.csproj", "{0B4A9C0B-96E5-498E-9EF9-77CFECE00FFE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtasStudio.Api", "MtasStudio.Api\MtasStudio.Api.csproj", "{C44E3DB9-967D-4934-9778-5EFBF24FA35C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MtasStudio.Api", "MtasStudio.Api\MtasStudio.Api.csproj", "{C44E3DB9-967D-4934-9778-5EFBF24FA35C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{F64B5712-44FC-420C-9932-257AD3F417DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F64B5712-44FC-420C-9932-257AD3F417DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F64B5712-44FC-420C-9932-257AD3F417DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B4A9C0B-96E5-498E-9EF9-77CFECE00FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B4A9C0B-96E5-498E-9EF9-77CFECE00FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B4A9C0B-96E5-498E-9EF9-77CFECE00FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B4A9C0B-96E5-498E-9EF9-77CFECE00FFE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C44E3DB9-967D-4934-9778-5EFBF24FA35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C44E3DB9-967D-4934-9778-5EFBF24FA35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C44E3DB9-967D-4934-9778-5EFBF24FA35C}.Release|Any CPU.ActiveCfg = Release|Any CPU

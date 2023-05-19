@@ -1,4 +1,5 @@
-﻿using MtasStudio.Domain.AggregateModels;
+﻿using MtasStudio.Application.Models;
+using MtasStudio.Domain.AggregateModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,5 @@ namespace MtasStudio.Application.Interfaces.Repositories
 {
     public interface ICategoryRepository : IGenericRepository<Category>
     {
-
     }
 }
